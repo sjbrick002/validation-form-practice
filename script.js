@@ -42,7 +42,7 @@ password.addEventListener("blur", () => {
 });
 
 passwordConfirmation.addEventListener("input", () => {
-    if (passwordConfirmation.validity.valid) {
+    if (passwordConfirmation.validity.valid && (passwordConfirmation.value === password.value)) {
         passwordConfirmationError.textContent = "";
         passwordConfirmationError.className = "confirm-password-error";
     } else {
@@ -98,7 +98,6 @@ function showPasswordConfirmationError() {
         passwordConfirmationError.textContent = "Please re-enter your desired password to confirm";
     } else if (passwordConfirmation.value !== password.value) {
         passwordConfirmationError.textContent = "Please make sure your password confirmation matches your password above";
-        console.log("is active")
     };
     passwordConfirmationError.className = "confirm-password-error active-error";
 };
