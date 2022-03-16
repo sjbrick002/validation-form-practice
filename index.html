@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="" method="post" novalidate>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="you@example.com">
+    <form novalidate>
+        <label for="email">Email (required)</label>
+        <input type="email" name="email" id="email" placeholder="you@example.com" required>
+        <span class="email-error" aria-live="polite"></span>
         <label for="country">Country</label>
         <select name="country" id="country">
             <option value="Afghanistan">Afghanistan</option>
@@ -210,13 +211,22 @@
             <option value="Zambia">Zambia</option>
             <option value="Zimbabwe">Zimbabwe</option>
         </select>
+        <span class="country-error" aria-live="polite"></span>
         <label for="zip-code">Zip Code</label>
         <input type="tel" name="zip_code" id="zip-code">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <label for="password-confirmation">Confirm Password</label>
-        <input type="password" name="password-confirmation" id="password-confirmation">
+        <span class="zipcode-error" aria-live="polite"></span>
+        <label for="password">Password (required)</label>
+        <input type="password" name="password" id="password" minlength="8" required>
+        <span class="password-error" aria-live="polite">
+            <ul>
+                <li>Minimum length of 8 characters</li>
+            </ul>
+        </span>
+        <label for="password-confirmation">Confirm Password (required)</label>
+        <input type="password" name="password-confirmation" id="password-confirmation" minlength="8" required>
+        <span class="confirm-password-error" aria-live="polite"></span>
         <button type="submit">Submit</button>
     </form>
+    <script src="./script.js"></script>
 </body>
 </html>
